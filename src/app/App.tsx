@@ -47,9 +47,14 @@ function Nav() {
         <li><a href="#experience">Experience</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
-      <div className="nav-avail">
-        <div className="avail-dot" />
-        Available for work
+      <div className="nav-right">
+        <div className="nav-avail">
+          <div className="avail-dot" />
+          Available for work
+        </div>
+        <a href="/UI UX Designer.pdf" download="Husain Bhatiya - Resume.pdf" className="nav-resume-btn">
+          <span>Resume</span>
+        </a>
       </div>
     </nav>
   );
@@ -131,7 +136,7 @@ function About() {
   return (
     <section className="s" id="about">
       <div className="s-tag r">02 — About</div>
-      <h2 className="s-h r d1">Who<br /><em>I Am</em></h2>
+      <h2 className="s-h r d1">Who <em>I Am</em></h2>
       <div className="ag r d2">
         <div className="ac">
           <div className="ac-lbl">Biography</div>
@@ -188,7 +193,7 @@ function Skills() {
   return (
     <section className="s" id="skills">
       <div className="s-tag r">03 — Skills</div>
-      <h2 className="s-h r d1">What I<br /><em>Bring</em></h2>
+      <h2 className="s-h r d1">What I <em>Bring</em></h2>
       <table className="st">
         <tbody>
           {skills.map((sk, i) => (
@@ -249,7 +254,7 @@ function Projects() {
     <>
       <section className="s" id="projects" style={{ paddingBottom: 0, borderBottom: 'none' }}>
         <div className="s-tag r">04 — Selected Work</div>
-        <h2 className="s-h r d1">The<br /><em>Work</em></h2>
+        <h2 className="s-h r d1">The <em>Work</em></h2>
       </section>
       <div
         className="ph r"
@@ -290,7 +295,7 @@ function Experience() {
   return (
     <section className="s" id="experience">
       <div className="s-tag r">05 — Experience</div>
-      <h2 className="s-h r d1">Where<br /><em>I've Been</em></h2>
+      <h2 className="s-h r d1">Where <em>I've Been</em></h2>
       <div className="el">
         <div className="ei r">
           <div>
@@ -355,7 +360,7 @@ function Process() {
   return (
     <section className="s" id="process">
       <div className="s-tag r">06 — How I Work</div>
-      <h2 className="s-h r d1">My<br /><em>Process</em></h2>
+      <h2 className="s-h r d1">My <em>Process</em></h2>
       <div className="ps r d2">
         {processSteps.map(step => (
           <div key={step.n} className="ps-card">
@@ -386,7 +391,7 @@ function Tools() {
   return (
     <section className="s" id="tools">
       <div className="s-tag r">07 — Tools</div>
-      <h2 className="s-h r d1">The<br /><em>Arsenal</em></h2>
+      <h2 className="s-h r d1">The <em>Arsenal</em></h2>
       <div className="tw r d2">
         {tools.map(t => (
           <div key={t.num} className={`tc${t.gold ? ' gold-cell' : ''}`}>
@@ -415,7 +420,7 @@ function Contact() {
   return (
     <section className="s" id="contact" style={{ borderBottom: 'none' }}>
       <div className="ct-pre r">Let's talk</div>
-      <div className="ct-h r d1">Start a<br /><em>Project</em></div>
+      <div className="ct-h r d1">Start a <em>Project</em></div>
       <a href="mailto:husainbhatiya647@gmail.com" className="ct-email r d2">husainbhatiya647@gmail.com</a>
       <div className="ct-btns r d3">
         <a href="mailto:husainbhatiya647@gmail.com" className="cb prim" onMouseMove={handleMagnetic} onMouseLeave={resetMagnetic}><span>Send Email</span></a>
