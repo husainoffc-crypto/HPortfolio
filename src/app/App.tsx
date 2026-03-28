@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState, useCallback } from 'react';
+import { motion, AnimatePresence } from 'motion/react';
 import './portfolio.css';
 
 /* ─────────────── LOADER ─────────────── */
@@ -36,7 +37,7 @@ function Loader({ onDone }: { onDone: () => void }) {
 }
 
 /* ─────────────── NAV ─────────────── */
-function Nav() {
+function Nav({ inFooter }: { inFooter: boolean }) {
   return (
     <nav className="main-nav">
       <a href="#" className="nav-logo">Husain Bhatiya</a>
@@ -52,9 +53,13 @@ function Nav() {
           <div className="avail-dot" />
           Available for work
         </div>
-        <a href="/UI UX Designer.pdf" download="Husain Bhatiya - Resume.pdf" className="nav-resume-btn">
-          <span>Resume</span>
-        </a>
+        <AnimatePresence>
+          {!inFooter && (
+            <motion.a layoutId="resumeBtn" href="/UI UX Designer.pdf" download="Husain Bhatiya - Resume.pdf" className="nav-resume-btn">
+              <span>Resume</span>
+            </motion.a>
+          )}
+        </AnimatePresence>
       </div>
     </nav>
   );
@@ -434,11 +439,22 @@ function Contact() {
 }
 
 /* ─────────────── FOOTER ─────────────── */
-function Footer() {
+function Footer({ inFooter, footerRef }: { inFooter: boolean, footerRef: React.RefObject<HTMLElement | null> }) {
   return (
-    <footer className="main-footer">
+    <footer className="main-footer" ref={footerRef} style={{ position: 'relative' }}>
       <div className="fl">HB</div>
-      <div className="fc">© 2025 Husain Bhatiya</div>
+      <div className="fc">
+        <AnimatePresence>
+          {inFooter && (
+            <motion.div layoutId="resumeBtn" style={{ display: 'flex', justifyContent: 'center' }}>
+              <a href="/UI UX Designer.pdf" download="Husain Bhatiya - Resume.pdf" className="nav-resume-btn">
+                <span>Download Resume</span>
+              </a>
+            </motion.div>
+          )}
+        </AnimatePresence>
+        <div style={{ marginTop: inFooter ? 24 : 0, transition: 'margin 0.4s' }}>© 2025 Husain Bhatiya</div>
+      </div>
       <div className="fr">Mumbai, India</div>
     </footer>
   );
@@ -447,8 +463,10 @@ function Footer() {
 /* ─────────────── APP ─────────────── */
 export default function App() {
   const [loaded, setLoaded] = useState(false);
+  const [inFooter, setInFooter] = useState(false);
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const dotRef = useRef<HTMLDivElement>(null);
+  const footerRef = useRef<HTMLElement>(null);
 
   const handleLoaded = useCallback(() => setLoaded(true), []);
 
@@ -456,9 +474,13 @@ export default function App() {
   useEffect(() => {
     const dot = dotRef.current;
     if (!dot) return;
+    let frame: number;
     const move = (e: MouseEvent) => {
-      dot.style.left = e.clientX + 'px';
-      dot.style.top = e.clientY + 'px';
+      cancelAnimationFrame(frame);
+      frame = requestAnimationFrame(() => {
+        dot.style.left = e.clientX + 'px';
+        dot.style.top = e.clientY + 'px';
+      });
     };
     const expand = () => dot.classList.add('cursor-expanded');
     const shrink = () => dot.classList.remove('cursor-expanded');
@@ -509,6 +531,24 @@ export default function App() {
     resize();
     window.addEventListener('resize', resize);
 
+    const loop = () => {
+      if (drops.length === 0) {
+        animId = 0;
+        return;
+      }
+      cx.clearRect(0, 0, W, H);
+      for (let i = drops.length - 1; i >= 0; i--) {
+        const d = drops[i];
+        cx.beginPath();
+        cx.arc(d.x, d.y, d.r, 0, Math.PI * 2);
+        cx.fillStyle = `rgba(10,10,10,${d.a * d.life})`;
+        cx.fill();
+        d.y += d.vy; d.x += d.vx; d.r *= 0.975; d.life -= 0.022;
+        if (d.life <= 0 || d.r < 0.4) drops.splice(i, 1);
+      }
+      animId = requestAnimationFrame(loop);
+    };
+
     const onMove = (e: MouseEvent) => {
       mx = e.clientX; my = e.clientY;
       const dx = mx - px, dy = my - py;
@@ -525,24 +565,12 @@ export default function App() {
           });
         }
         px = mx; py = my;
+        if (animId === 0) {
+          animId = requestAnimationFrame(loop);
+        }
       }
     };
     document.addEventListener('mousemove', onMove);
-
-    const loop = () => {
-      cx.clearRect(0, 0, W, H);
-      for (let i = drops.length - 1; i >= 0; i--) {
-        const d = drops[i];
-        cx.beginPath();
-        cx.arc(d.x, d.y, d.r, 0, Math.PI * 2);
-        cx.fillStyle = `rgba(10,10,10,${d.a * d.life})`;
-        cx.fill();
-        d.y += d.vy; d.x += d.vx; d.r *= 0.975; d.life -= 0.022;
-        if (d.life <= 0 || d.r < 0.4) drops.splice(i, 1);
-      }
-      animId = requestAnimationFrame(loop);
-    };
-    animId = requestAnimationFrame(loop);
 
     return () => {
       window.removeEventListener('resize', resize);
@@ -567,6 +595,16 @@ export default function App() {
     return () => io.disconnect();
   }, [loaded]);
 
+  /* Footer tracking */
+  useEffect(() => {
+    if (!footerRef.current) return;
+    const observer = new IntersectionObserver(([entry]) => {
+      setInFooter(entry.isIntersecting);
+    }, { threshold: 0.1 });
+    observer.observe(footerRef.current);
+    return () => observer.disconnect();
+  }, []);
+
   const marquee1 = ['UI Design', 'UX Research', 'Figma', 'Adobe XD', 'Manual Testing', 'Selenium', 'Design Systems', 'Prototyping', 'Wireframing', 'Automation QA'];
   const marquee2 = ['Inovant Solutions', 'Runtime Solutions', 'Mumbai India', '8.9 CGPA', "Q Spider's", 'Just Academy', 'Thakur College', 'Open to Work'];
 
@@ -576,7 +614,7 @@ export default function App() {
       <canvas id="ink" ref={canvasRef} />
       <div id="cursor-dot" ref={dotRef} />
 
-      <Nav />
+      <Nav inFooter={inFooter} />
       <Hero />
       <Marquee items={marquee1} />
       <About />
@@ -587,7 +625,7 @@ export default function App() {
       <Marquee items={marquee2} reversed />
       <Tools />
       <Contact />
-      <Footer />
+      <Footer inFooter={inFooter} footerRef={footerRef} />
     </>
   );
 }
