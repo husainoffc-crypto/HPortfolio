@@ -72,9 +72,9 @@ function Hero() {
       <div className="h-eyebrow">UI/UX Designer · Software Tester · Mumbai</div>
       <div className="h1wrap">
         <h1 className="h1">
-          <span className="lw"><span className="w">Husain</span></span>
-          <span className="lw"><span className="w">crafts</span></span>
-          <span className="lw"><span className="w">Experience.</span></span>
+          <span className="lw"><span className="w">Crafting</span></span>
+          <span className="lw"><span className="w">Meaningful</span></span>
+          <span className="lw"><span className="w">Experiences.</span></span>
         </h1>
       </div>
       <div className="h-right">
@@ -176,7 +176,7 @@ function About() {
           <div className="ac" style={{ flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
             <div className="ac-lbl" style={{ color: 'var(--mid)' }}>Currently Working</div>
             <div style={{ fontFamily: 'var(--f-serif)', fontSize: 'clamp(28px, 3.5vw, 42px)', fontWeight: 900, lineHeight: 1 }}>Runtime<br />Solutions</div>
-            <div className="stat-l" style={{ color: 'var(--mid)', marginTop: 'auto', paddingTop: 16 }}>1.4 Years · QA & UX/UI Designer</div>
+            <div className="stat-l" style={{ color: 'var(--mid)', marginTop: 'auto', paddingTop: 16 }}>2 Years · QA & UX/UI Designer</div>
           </div>
         </div>
       </div>
@@ -229,10 +229,10 @@ const projects = [
   { n: 'Project 08', name: 'LMS', desc: 'LMS is a learning management system designed to provide users with a structured interface to manage and access educational resources efficiently. The objective of the project was to design a modern, intuitive, and scalable interface that simplifies learning workflows while maintaining clarity and usability.', tech: 'Figma · Adobe XD · Live', letter: 'L', dark: false, link: 'https://www.figma.com/proto/O95ig4ASp0k0t1Rgv7LDpp/Amplify-Chicago?node-id=1433-4905&viewport=-1416%2C-71%2C0.05&t=3bFFBwaVjPgHlp5L-1&scaling=min-zoom&content-scaling=fixed&starting-point-node-id=1433%3A4905&show-proto-sidebar=1&page-id=898%3A6272' },
   { n: 'Project 09', name: 'Toppscholar', desc: 'Toppscholar is an education-focused platform designed to support students in accessing academic resources and learning tools. The design focuses on organized course listings, intuitive navigation, and improved learning accessibility.', tech: 'Figma · Adobe XD · Live', letter: 'T', dark: false, link: 'https://www.figma.com/proto/Y35ikEREAQg8AyazT8xPNT/Toppscholar?node-id=144-493&viewport=-3525%2C323%2C0.18&t=TtlGnFnqjqzhFi22-1&scaling=min-zoom&content-scaling=fixed&starting-point-node-id=6%3A1707&show-proto-sidebar=1&page-id=0%3A1' },
   { n: 'Project 10', name: 'YCMOU', desc: 'YCMOU is an educational portal designed to provide students with information about courses, admissions, and academic resources. The goal was to create a clear and structured interface that simplifies navigation across educational services.', tech: 'Figma · Adobe XD · Live', letter: 'Y', dark: false, link: 'https://www.figma.com/proto/suKbv0W2hNHq5xj1JfkBjK/Yashwantrao-University-Landing-page?node-id=18-2672&viewport=589%2C25%2C0.18&t=ivgNv4pQKfh0qbRx-1&scaling=min-zoom&content-scaling=fixed&starting-point-node-id=18%3A2672&page-id=18%3A2671' },
-  { n: 'Project 11', name: 'Cybercrime', desc: 'The Cybercrime platform is designed to help users understand cyber threats and report online crimes. The design focuses on clear guidance, accessible reporting processes, and structured information to help users interact with the system easily.', tech: 'Figma · Adobe XD · Live', letter: 'C', dark: false },
+  { n: 'Project 11', name: 'Cybercrime', desc: 'The Cybercrime platform is designed to help users understand cyber threats and report online crimes. The design focuses on clear guidance, accessible reporting processes, and structured information to help users interact with the system easily.', tech: 'Figma · Adobe XD · Live', letter: 'C', dark: false }, ,
   { n: 'Project 12', name: 'Packiyo', desc: 'Packiyo is a logistics and fulfillment platform designed to help businesses manage warehouse operations, inventory, orders, and shipping processes efficiently. The objective of the project was to design a clean, scalable, and intuitive dashboard interface that simplifies complex logistics workflows.', tech: 'Figma · Adobe XD · Live', letter: 'P', dark: false, link: 'https://www.figma.com/proto/a61OKc7SuT4IMYOKawfUi7/canvas?node-id=366-544&viewport=70%2C430%2C0.05&t=2nLXQDNnvkCvMvCj-1&scaling=min-zoom&content-scaling=fixed&starting-point-node-id=366%3A544&show-proto-sidebar=1&page-id=0%3A1' },
-  { n: 'Project 13', name: 'TV9 Hindi', desc: 'TV9 Hindi is a digital platform designed to deliver news and current affairs content to Hindi-speaking audiences. The objective of the project was to create an intuitive and accessible interface that enables users to consume news content quickly and efficiently.', tech: 'Figma · Adobe XD · Live', letter: 'T', dark: true, link: 'https://www.figma.com/proto/l1O6d2pEVBWqZsl8ughXrn/TV9-Hindi?node-id=93-3&viewport=-1122%2C196%2C0.28&t=zPJWjA3s8CO9KrcI-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=93%3A3&show-proto-sidebar=1&page-id=93%3A2' },
-  { n: 'Project 14', name: 'Runtime SEO', desc: 'Runtime SEO is a digital platform designed to help businesses improve their website’s visibility and search engine rankings. The goal of the project was to create an intuitive interface that helps users track their SEO performance and identify opportunities for improvement.', tech: 'Figma · Adobe XD · Live', letter: 'R', dark: true, link: 'https://www.figma.com/proto/Z4pnwfPZnlDaJBC6tO8skx/Runtime-SEO?node-id=1-596&viewport=214%2C84%2C0.13&t=UAggTAZn8m19825d-1&scaling=min-zoom&content-scaling=fixed&starting-point-node-id=240%3A2&show-proto-sidebar=1&page-id=0%3A1' },
+  { n: 'Project 13', name: 'TV9 Hindi', desc: 'TV9 Hindi is a digital platform designed to deliver news and current affairs content to Hindi-speaking audiences. The objective of the project was to create an intuitive and accessible interface that enables users to consume news content quickly and efficiently.', tech: 'Figma · Adobe XD · Live', letter: 'T', dark: false, link: 'https://www.figma.com/proto/l1O6d2pEVBWqZsl8ughXrn/TV9-Hindi?node-id=93-3&viewport=-1122%2C196%2C0.28&t=zPJWjA3s8CO9KrcI-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=93%3A3&show-proto-sidebar=1&page-id=93%3A2' },
+  { n: 'Project 14', name: 'Runtime SEO', desc: 'Runtime SEO is a digital platform designed to help businesses improve their website’s visibility and search engine rankings. The goal of the project was to create an intuitive interface that helps users track their SEO performance and identify opportunities for improvement.', tech: 'Figma · Adobe XD · Live', letter: 'R', dark: false, link: 'https://www.figma.com/proto/Z4pnwfPZnlDaJBC6tO8skx/Runtime-SEO?node-id=1-596&viewport=214%2C84%2C0.13&t=UAggTAZn8m19825d-1&scaling=min-zoom&content-scaling=fixed&starting-point-node-id=240%3A2&show-proto-sidebar=1&page-id=0%3A1' },
   { n: 'Project 15', name: 'Ethnovista', desc: 'Etnovista is a modern e-commerce platform designed for showcasing and selling unique artworks, paintings, and handcrafted artifacts through an elegant and immersive digital experience. The project focuses on creating a visually rich interface that highlights cultural artistry while providing users with a smooth and engaging shopping journey.', tech: 'Figma · Adobe XD · Live', letter: 'E', dark: false, link: 'https://www.figma.com/proto/N2wU3VONTzjdEJfUV067Lq/Ethnovista?node-id=1-3&viewport=-2164%2C229%2C0.14&t=kR7iHoM625Eemomc-1&scaling=min-zoom&content-scaling=fixed&starting-point-node-id=1%3A3&show-proto-sidebar=1&page-id=0%3A1' },
   { n: 'Project 16', name: 'Travel East', desc: 'Travel East is a travel discovery and booking platform designed to help users explore destinations across eastern regions and plan their trips effortlessly. The goal of the project was to create a visually engaging and user-friendly interface that simplifies travel exploration and booking.', tech: 'Figma · Adobe XD · Live', letter: 'T', dark: true, link: 'https://www.figma.com/proto/kBamBwOpfBvWrVjSMx50zt/Travel-East?node-id=205-680&p=f&viewport=308%2C68%2C0.11&t=2caloyNolRt5vCwX-1&scaling=min-zoom&content-scaling=fixed&starting-point-node-id=205%3A680&show-proto-sidebar=1&page-id=205%3A679' },
 ];
@@ -354,7 +354,7 @@ function Experience() {
         <div className="ei r d1">
           <div>
             <div className="ei-co">Runtime<br />Solutions</div>
-            <div className="ei-dur">1.4 Years</div>
+            <div className="ei-dur">2 Years</div>
           </div>
           <div>
             <div className="ei-role">Internship to UX|UI Designer</div>
